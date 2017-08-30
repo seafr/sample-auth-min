@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  before_save { self.username = username.downcase }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_USERNAME = /\A[a-z][a-z\-\_]+[a-z]\z/i
   validates :username, presence: true, length: { minimum: 4 },
