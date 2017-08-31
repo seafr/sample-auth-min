@@ -8,6 +8,10 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
+  <br />
+  <div>
+    <b><%= flash[:success] %></b>
+  </div>
 
 <%= yield %>
 
