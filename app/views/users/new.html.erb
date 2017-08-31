@@ -3,25 +3,25 @@
   <%= render 'error_messages' %>
 
   <div>
-  <%= f.label :name %><br />
-  <%= f.text_field :name %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
 
   <div>
-  <%= f.label :username %><br />
-  <%= f.text_field :username %>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
   </div>
 
   <div>
-  <%= f.label :password %><br />
-  <%= f.password_field :password %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
   </div>
 
   <div>
-  <%= f.label :password_confirmation, "Confirmation" %><br />
-  <%= f.password_field :password_confirmation %>
+    <%= f.label :password_confirmation, "Confirmation" %><br />
+    <%= f.password_field :password_confirmation %>
   </div>
 
   <br />
-  <%= f.submit :Signup %>
+  <%= f.submit "Create account" %>
 <% end %>
