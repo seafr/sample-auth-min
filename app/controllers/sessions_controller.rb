@@ -9,6 +9,8 @@ class SessionsController < ApplicationController
       flash[:success] = "Login successful!"
       redirect_to user
     else
+      # use flash.now for rendered pages
+      flash.now[:danger] = "Invalid username/password"
       render 'new'
     end
   end
