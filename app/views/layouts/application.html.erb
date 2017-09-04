@@ -17,6 +17,10 @@
 
 <%= yield %>
 
+  <!-- an empty div to display debug params further down the page -->
+  <div style="height:200px"></div>
+  <!-- question: is this even acceptable? -->
+
   <%= debug(params) if Rails.env.development? %>
 </body>
 </html>
