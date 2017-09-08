@@ -2,5 +2,8 @@
 <p>
   <b><%= user.username %></b>
   [<%= user.name %>]
+  | 
+  <%= link_to "Delete", user, method: :delete,
+  			     data: { confirm: "Are you sure?" } %>
 </p>
 <% end %>
