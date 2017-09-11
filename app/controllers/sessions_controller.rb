@@ -16,7 +16,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id)
+    session.delete(:user_id) if user_logged_in?
+    @current_user = nil
     redirect_to root_url
   end
 end
