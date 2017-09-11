@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index]
+  before_action :logged_in_user, only: [:index, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
+
   def index
     @users = User.all
   end
@@ -13,7 +15,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def create
@@ -28,7 +29,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "Your account has been updated."
       redirect_to @user
@@ -55,6 +55,13 @@ class UsersController < ApplicationController
       unless user_logged_in?
 	flash[:danger] = "Please log in."
         redirect_to login_url
+      end
+    end
+    def correct_user
+      @user = User.find(params[:id])
+      # user objects must be the same based on id in URL and session
+      unless current_user == @user
+        redirect_to root_url
       end
     end
 end
