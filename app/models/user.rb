@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
 		       format: { with: VALID_USERNAME },
 		       uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 4 }
+  validates :password, presence: true, length: { minimum: 4 },
+  		       allow_nil: true
 end
