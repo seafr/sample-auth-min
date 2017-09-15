@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   before_save { self.username = username.downcase }
+  default_scope -> { order(created_at: :desc) }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_USERNAME = /\A[a-z][a-z0-9\-\_]+[a-z0-9]\z/i
   validates :username, presence: true, length: { minimum: 4 },
